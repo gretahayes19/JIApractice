@@ -27,7 +27,6 @@ class Room
         return true
     end
     false
-end
+  end
   
-
 end
