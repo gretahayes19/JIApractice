@@ -1,8 +1,11 @@
+require "byebug"
+
 class Employee
 
     attr_reader :name, :title
 
     def initialize(name, title)
+        
         @name = name
         @title = title
         @earnings = 0
@@ -13,3 +16,4 @@ class Employee
     end
 
 end
+

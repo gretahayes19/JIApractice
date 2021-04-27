@@ -1,4 +1,5 @@
 require "employee"
+require "byebug"
 
 class Startup
 
@@ -29,6 +30,7 @@ class Startup
     end
 
     def size
+        
         @employees.length
     end
 
@@ -68,3 +70,4 @@ class Startup
         startup.close
     end
 end
+
