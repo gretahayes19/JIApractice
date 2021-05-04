@@ -1,0 +1,270 @@
+  [1m[35m (210.1ms)[0m  [1m[35mCREATE DATABASE "tea_time_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (82.2ms)[0m  [1m[35mCREATE DATABASE "tea_time_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (11.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5983625962524780045)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateTeas (20210503114129)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "teas" ("id" bigserial primary key, "flavor" character varying NOT NULL, "amount" float NOT NULL)[0m
+  ↳ db/migrate/20210503114129_create_teas.rb:3
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_teas_on_flavor" ON "teas"  ("flavor")[0m
+  ↳ db/migrate/20210503114129_create_teas.rb:8
+  [1m[36mActiveRecord::SchemaMigration Create (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210503114129"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-05-03 11:47:12.466495"], ["updated_at", "2021-05-03 11:47:12.466495"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5983625962524780045)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mTea Load (1.0ms)[0m  [1m[34mSELECT "teas".* FROM "teas"[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mTea Load (0.5ms)[0m  [1m[34mSELECT "teas".* FROM "teas"[0m
+  ↳ db/seeds.rb:9
+  [1m[36mTea Create (1.0ms)[0m  [1m[32mINSERT INTO "teas" ("flavor", "amount") VALUES ($1, $2) RETURNING "id"[0m  [["flavor", "Green"], ["amount", 1.75]]
+  ↳ db/seeds.rb:13
+  [1m[36mTea Create (0.3ms)[0m  [1m[32mINSERT INTO "teas" ("flavor", "amount") VALUES ($1, $2) RETURNING "id"[0m  [["flavor", "Oolong"], ["amount", 2.0]]
+  ↳ db/seeds.rb:14
+  [1m[36mTea Create (0.2ms)[0m  [1m[32mINSERT INTO "teas" ("flavor", "amount") VALUES ($1, $2) RETURNING "id"[0m  [["flavor", "Earl Grey"], ["amount", 2.5]]
+  ↳ db/seeds.rb:15
+  [1m[36mTea Create (0.2ms)[0m  [1m[32mINSERT INTO "teas" ("flavor", "amount") VALUES ($1, $2) RETURNING "id"[0m  [["flavor", "Rooibos"], ["amount", 3.0]]
+  ↳ db/seeds.rb:16
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+Started GET "/" for ::1 at 2021-05-03 04:58:17 -0700
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/daniel/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/daniel/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.5/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/daniel/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.5/lib/rails/templates/rails/welcome/index.html.erb (3.3ms)
+Completed 200 OK in 14ms (Views: 9.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-05-03 04:59:07 -0700
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/daniel/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 210ms (Views: 206.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-05-03 05:11:54 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 50ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/daniel/Documents/app_academy/lecture/lecture_prep/2-22-21/PREP-w11d1-middleware/tea_time-try/app/assets/config
+  /Users/daniel/Documents/app_academy/lecture/lecture_prep/2-22-21/PREP-w11d1-middleware/tea_time-try/app/assets/images
+  /Users/daniel/Documents/app_academy/lecture/lecture_prep/2-22-21/PREP-w11d1-middleware/tea_time-try/app/assets/javascripts
+  /Users/daniel/Documents/app_academy/lecture/lecture_prep/2-22-21/PREP-w11d1-middleware/tea_time-try/app/assets/stylesheets
+  /Users/daniel/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/daniel/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.5/lib/assets/compiled
+  /Users/daniel/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.5/app/assets/javascripts
+  /Users/daniel/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.5/lib/assets/compiled
+  /Users/daniel/Documents/app_academy/lecture/lecture_prep/2-22-21/PREP-w11d1-middleware/tea_time-try/node_modules):
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag    'application', media: 'all' %>
+     9:     <%= javascript_include_tag 'application' %>
+    10:   </head>
+    11: 
+    12:   <body>
+  
+app/assets/javascripts/application.js:13
+app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb___2205737085971787153_70342144299580'
+Started GET "/" for ::1 at 2021-05-03 05:12:10 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 52ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/daniel/Documents/app_academy/lecture/lecture_prep/2-22-21/PREP-w11d1-middleware/tea_time-try/app/assets/config
+  /Users/daniel/Documents/app_academy/lecture/lecture_prep/2-22-21/PREP-w11d1-middleware/tea_time-try/app/assets/images
+  /Users/daniel/Documents/app_academy/lecture/lecture_prep/2-22-21/PREP-w11d1-middleware/tea_time-try/app/assets/javascripts
+  /Users/daniel/Documents/app_academy/lecture/lecture_prep/2-22-21/PREP-w11d1-middleware/tea_time-try/app/assets/stylesheets
+  /Users/daniel/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/daniel/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.5/lib/assets/compiled
+  /Users/daniel/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.5/app/assets/javascripts
+  /Users/daniel/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.5/lib/assets/compiled
+  /Users/daniel/Documents/app_academy/lecture/lecture_prep/2-22-21/PREP-w11d1-middleware/tea_time-try/node_modules):
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag    'application', media: 'all' %>
+     9:     <%= javascript_include_tag 'application' %>
+    10:   </head>
+    11: 
+    12:   <body>
+  
+app/assets/javascripts/application.js:13
+app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb___2205737085971787153_70342103973820'
+Started GET "/" for ::1 at 2021-05-03 05:12:24 -0700
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/daniel/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 797ms (Views: 793.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-05-03 05:13:18 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 26ms (Views: 22.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-05-03 05:14:30 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 439ms (Views: 435.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/teas" for ::1 at 2021-05-03 05:16:05 -0700
+Processing by Api::TeasController#index as JSON
+No template found for Api::TeasController#index, rendering head :no_content
+Completed 204 No Content in 137ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-05-03 05:16:46 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 40ms (Views: 36.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/teas" for ::1 at 2021-05-03 05:16:48 -0700
+Processing by Api::TeasController#index as JSON
+  [1m[36mTea Load (2.7ms)[0m  [1m[34mSELECT "teas".* FROM "teas"[0m
+  ↳ app/controllers/api/teas_controller.rb:4
+Completed 200 OK in 21ms (Views: 6.2ms | ActiveRecord: 12.3ms)
+
+
+Started POST "/api/teas" for ::1 at 2021-05-03 05:17:54 -0700
+Processing by Api::TeasController#create as JSON
+  Parameters: {"tea"=>{"flavor"=>"Green", "amount"=>"4.5"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/teas_controller.rb:10
+  [1m[36mTea Create (2.2ms)[0m  [1m[32mINSERT INTO "teas" ("flavor", "amount") VALUES ($1, $2) RETURNING "id"[0m  [["flavor", "Green"], ["amount", 4.5]]
+  ↳ app/controllers/api/teas_controller.rb:10
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/teas_controller.rb:10
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 2.6ms)
+
+
+  
+ActiveRecord::RecordNotUnique (PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "index_teas_on_flavor"
+DETAIL:  Key (flavor)=(Green) already exists.
+: INSERT INTO "teas" ("flavor", "amount") VALUES ($1, $2) RETURNING "id"):
+  
+app/controllers/api/teas_controller.rb:10:in `create'
+Started POST "/api/teas" for ::1 at 2021-05-03 05:18:58 -0700
+Processing by Api::TeasController#create as JSON
+  Parameters: {"tea"=>{"flavor"=>"Chai", "amount"=>"4.5"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/teas_controller.rb:10
+  [1m[36mTea Create (0.5ms)[0m  [1m[32mINSERT INTO "teas" ("flavor", "amount") VALUES ($1, $2) RETURNING "id"[0m  [["flavor", "Chai"], ["amount", 4.5]]
+  ↳ app/controllers/api/teas_controller.rb:10
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/teas_controller.rb:10
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/api/teas" for ::1 at 2021-05-03 05:19:03 -0700
+Processing by Api::TeasController#index as JSON
+  [1m[36mTea Load (0.3ms)[0m  [1m[34mSELECT "teas".* FROM "teas"[0m
+  ↳ app/controllers/api/teas_controller.rb:4
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-05-03 05:31:25 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 400ms (Views: 397.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-05-03 05:33:03 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 360ms (Views: 356.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-05-03 05:33:42 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 338ms (Views: 335.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-05-03 05:34:00 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 371ms (Views: 362.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-05-03 05:34:38 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 373ms (Views: 365.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-05-03 05:35:23 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 377ms (Views: 367.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/teas" for ::1 at 2021-05-03 05:35:23 -0700
+Processing by Api::TeasController#index as JSON
+  [1m[36mTea Load (1.1ms)[0m  [1m[34mSELECT "teas".* FROM "teas"[0m
+  ↳ app/controllers/api/teas_controller.rb:4
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 1.1ms)
+
+
