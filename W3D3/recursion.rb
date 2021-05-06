@@ -6,3 +6,5 @@ def range(min, max)
 
     return range(min, max-1) << max-1
 end
+
+def 
