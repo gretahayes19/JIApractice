@@ -20,10 +20,14 @@ class PolyTreeNode
 
     def parent=(parent_node)
         return if self.parent == parent_node
+
+        if self.parent
+            self.parent.children.delete(self)
+        end 
         @parent = parent_node
-        parent_node.children << self 
+        parent_node.children << self unless self.parent.nil?
     end
 
 
-
+    
 end
