@@ -57,6 +57,17 @@ class KnightPathFinder
         node = self.root_node.dfs(end_pos)
     end
 
+    def trace_path_back(end_node)
+        path = []
+        current = end_node
+        until current.nil? 
+            nodes << current_node
+            current_node = current_node.parent
+        end
+
+        path
+    end
+
     
     
 end
