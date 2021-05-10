@@ -55,6 +55,8 @@ class KnightPathFinder
 
     def find_path(end_pos)
         node = self.root_node.dfs(end_pos)
+
+        trace_path_back(node).map(&:value)
     end
 
     def trace_path_back(end_node)
@@ -68,7 +70,6 @@ class KnightPathFinder
         path
     end
 
-    
     
 end
 
