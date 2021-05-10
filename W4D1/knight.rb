@@ -32,6 +32,9 @@ class KnightPathFinder
     end
 
     def new_move_positions(pos)
+        new_moves = KnightPathFinder.valid_moves(pos)
+            .reject { |new_pos| considered_positions.include?(new_pos) }
+        @considered_positions += new_moves
     end
 
     def build_move_tree
