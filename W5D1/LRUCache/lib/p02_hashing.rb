@@ -4,11 +4,17 @@ end
 
 class Array
   def hash
+    hash_key = 0
+    (0...self.length-1).each do |i|
+      hash_key += self[i].hash ^ self[i+1].hash
+    end
+    hash_key
   end
 end
 
 class String
   def hash
+    
   end
 end
 
