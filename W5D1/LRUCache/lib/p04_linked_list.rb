@@ -20,7 +20,15 @@ class Node
 end
 
 class LinkedList
+  include Enumerable
+
+  attr_reader :head, :tail
+
   def initialize
+    @head = Node.new
+    @tail = Node.new
+    @head.next = @tail
+    @tail.prev = @head
   end
 
   def [](i)
@@ -29,21 +37,34 @@ class LinkedList
   end
 
   def first
+    @head
   end
 
   def last
+    @tail
   end
 
   def empty?
+    return true if @head.next == @tail && @tail.prev == @head
+    false
   end
 
   def get(key)
+    
   end
 
   def include?(key)
   end
 
   def append(key, val)
+    new_node = Node.new(key, val)
+
+    self.tail.prev.next = new_node
+    new_node.prev = self.tail.prev
+    new_node.next = self.tail
+    self.tail.prev = new_node
+
+    new_node
   end
 
   def update(key, val)
