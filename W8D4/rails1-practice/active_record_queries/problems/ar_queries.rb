@@ -56,11 +56,22 @@ def susan_supporting_roles
 
   # Reminder: In the castings table the lead actor for a movie will
   # have an ord = 1 
-
+  Movie
+    .select(:id, :title)
+    .joins(:actors)
+    .where(actors: {name: 'Susan Sarandon'})
+    .where.not(castings: {ord: 1})
 end
 
 def biggest_cast
   # Find the id and title of the 3 movies with the
   # largest casts (i.e most actors)
+
+  Movie
+    .select(:id, :title)
+    .joins(:castings)
+    .group('movies.id')
+    .order('count(*) desc')
+    .limit(3)
 
 end
