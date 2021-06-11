@@ -26,7 +26,9 @@
 
 def lowest_score
   # Find the id and title of movies with a scores lower than 2
-  Movie.select(:id, :title).where('score < 2')
+  Movie
+    .select(:id, :title)
+    .where('score < 2')
 end
 
 def wesley_movies
@@ -35,9 +37,7 @@ def wesley_movies
   Movie
     .select(:id, :title, :score)
     .joins(:actors)
-    # .where("actors.name = 'Wesley Snipes'")
     .where(actors: {name: 'Wesley Snipes'})
-    
 end
 
 def meg_movies
@@ -47,7 +47,7 @@ def meg_movies
     .select(:id, :title, :yr)
     .joins(:actors)
     .where(actors: {name: 'Meg Ryan'})
-    .order('yr ASC')
+    .order('movies.yr ASC')
 end
 
 def susan_supporting_roles
@@ -66,12 +66,10 @@ end
 def biggest_cast
   # Find the id and title of the 3 movies with the
   # largest casts (i.e most actors)
-
   Movie
     .select(:id, :title)
     .joins(:castings)
     .group('movies.id')
-    .order('count(*) desc')
+    .order('count(*) DESC')
     .limit(3)
-
 end
